@@ -50,6 +50,16 @@ your system.
     Adds `publish()`/`unpublish()` for controlling if an Entity is "published". Uses the DateTime value object.
     publish/unpublish are not implemented as they should raise events when used.
     
+ 1. Stringable
+ 
+    Adds `__toString()` and a `toString()` method that will use try the following methods:
+    
+     * `displayAs()`
+     * `title()`
+     * `name()`
+    
+    If none are present an empty string is returned.
+    
  1. Timestampable
  
     Adds `createdAt()`/`updatedAt()` methods. Not setters are not defined as the entity should update the

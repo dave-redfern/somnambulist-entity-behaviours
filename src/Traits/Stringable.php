@@ -18,36 +18,40 @@
 
 namespace Somnambulist\EntityBehaviours\Traits;
 
-use Somnambulist\ValueObjects\Types\DateTime\DateTime;
+use Somnambulist\EntityBehaviours\Contracts\Nameable as NameableContract;
 
 /**
- * Trait Publishable
+ * Trait Stringable
  *
  * @package    Somnambulist\EntityBehaviours\Traits
- * @subpackage Somnambulist\EntityBehaviours\Traits\Publishable
- * @author     Dave Redfern
+ * @subpackage Somnambulist\EntityBehaviours\Traits\Stringable
  */
-trait Publishable
+trait Stringable
 {
 
     /**
-     * @var DateTime
+     * @return string
      */
-    protected $publishedAt;
-
-    /**
-     * @return boolean
-     */
-    public function isPublished()
+    public function __toString()
     {
-        return (null !== $this->publishedAt);
+        return (string)$this->toString();
     }
 
     /**
-     * @return DateTime
+     * @return string
      */
-    public function publishedAt(): DateTime
+    public function toString()
     {
-        return $this->publishedAt;
+        if (method_exists($this, 'displayAs')) {
+            return $this->displayAs();
+        }
+        if (method_exists($this, 'title')) {
+            return $this->title();
+        }
+        if ($this instanceof NameableContract) {
+            return $this->name();
+        }
+
+        return '';
     }
 }
