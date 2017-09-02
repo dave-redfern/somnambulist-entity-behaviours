@@ -40,6 +40,25 @@ trait Timestampable
     protected $updatedAt;
 
     /**
+     * @return void
+     */
+    public function initializeTimestamps(): void
+    {
+        if (!$this->createdAt && !$this->updatedAt) {
+            $this->createdAt = DateTime::now();
+            $this->updatedAt = DateTime::now();
+        }
+    }
+
+    /**
+     * @return void
+     */
+    public function updateTimestamps(): void
+    {
+        $this->updatedAt = DateTime::now();
+    }
+
+    /**
      * @return DateTime
      */
     public function createdAt(): DateTime

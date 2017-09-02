@@ -31,6 +31,16 @@ interface Timestampable
 {
 
     /**
+     * @return void
+     */
+    public function initializeTimestamps(): void;
+
+    /**
+     * @return void
+     */
+    public function updateTimestamps(): void;
+
+    /**
      * @return DateTime
      */
     public function createdAt(): DateTime;
