@@ -21,6 +21,6 @@
     },
     "require": {
         "php": ">=7",
-        "somnambulist/value-objects": "1.2.*"
+        "somnambulist/value-objects": "~1.2"
     }
 }
