@@ -36,7 +36,7 @@ trait Activatable
     /**
      * @return boolean
      */
-    public function isActive()
+    public function isActive(): bool
     {
         return $this->isActive;
     }
