@@ -1,3 +1,7 @@
+# Moved to https://github.com/dave-redfern/somnambulist-domain
+
+This repository has been archived. Please update to the combined package.s
+
 ## Entity Behaviours
 
 Provides some useful interfaces and traits that can be used with entities. The traits implement on
